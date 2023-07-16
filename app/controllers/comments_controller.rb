@@ -4,8 +4,8 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to prototype_path(@comment.prototype)
     else
-      @prototype = @comment.prototype
-      @comments = @tweet.comments
+      @prototype = @comment.prototype    #@comment(コメント)に紐づくprototype(投稿)を左辺に代入
+      @comments = @prototype.comments    #@prototype(投稿)に紐づくcomments(コメントたち)を左辺に代入
       render "prototypes/show" # views/tweets/show.html.erbのファイルを参照しています。
     end
   end
