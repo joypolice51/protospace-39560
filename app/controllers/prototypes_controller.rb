@@ -14,7 +14,7 @@ class PrototypesController < ApplicationController
   def create
     @prototype = Prototype.new(prototype_params)
     if @prototype.save
-      redirect_to prototypes_path  #挨拶ページのパス
+      redirect_to "/"
     else
       render :new, status: :unprocessable_entity  #入力ページに戻る
     end
